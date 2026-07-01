@@ -55,7 +55,7 @@
 2. 开启通知（openNotifyBLE）
 3. 注册状态回调（onBLECharacteristicValueChangeV2）
 4. 发送 WiFi 信息（writeBLECharacteristicValue）
-5. 收到成功状态后轮询绑定（bindDeviceByWifi，最长 60s）
+5. 收到成功状态后轮询绑定（bindDeviceByWifi）
 
 ## 配网状态码
 
