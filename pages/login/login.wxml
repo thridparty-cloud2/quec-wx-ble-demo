@@ -1,0 +1,19 @@
+<view class="container">
+  <view class="header">
+    <text class="title">蓝牙配网 Demo</text>
+    <text class="subtitle">请登录后使用</text>
+  </view>
+
+  <view class="form-card">
+    <view class="input-item">
+      <input class="input" placeholder="手机号或邮箱" value="{{account}}" bindinput="onAccountInput" />
+    </view>
+    <view class="input-item">
+      <input class="input" placeholder="密码" value="{{password}}" bindinput="onPasswordInput" />
+    </view>
+    <view class="btn-login {{account && password.length >= 6 && !loading ? '' : 'btn-disabled'}}" bindtap="login">
+      {{loading ? '登录中...' : '登录'}}
+    </view>
+    <view class="tip">登录后才能使用设备绑定功能</view>
+  </view>
+</view>

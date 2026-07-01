@@ -1,0 +1,24 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/ble_demo/ble_demo"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#4A90D9",
+    "navigationBarTitleText": "蓝牙配网Demo",
+    "navigationBarTextStyle": "white"
+  },
+  "sitemapLocation": "sitemap.json",
+  "plugins": {
+    "quecPlugin": {
+      "version": "dev-310c00538b425a44507f3c1ff73523bb",
+      "provider": "wx8b0625890b89be58"
+    }
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "您的位置信息将用于添加地址"
+    }
+  }
+}

@@ -1,0 +1,265 @@
+.container {
+  padding: 20rpx;
+  padding-bottom: 60rpx;
+}
+
+.header {
+  text-align: center;
+  padding: 20rpx 0;
+  position: relative;
+}
+
+.btn-reset-top {
+  position: absolute;
+  right: 10rpx;
+  top: 20rpx;
+  padding: 12rpx 24rpx;
+  background: #f39c12;
+  color: #fff;
+  border-radius: 10rpx;
+  font-size: 24rpx;
+  font-weight: 500;
+}
+
+.title {
+  font-size: 38rpx;
+  font-weight: bold;
+  color: #2c3e50;
+  display: block;
+}
+
+.subtitle {
+  font-size: 24rpx;
+  color: #7f8c8d;
+  margin-top: 8rpx;
+  display: block;
+}
+
+.card {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 28rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0,0,0,0.05);
+}
+
+.card-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 20rpx;
+  padding-bottom: 14rpx;
+  border-bottom: 1rpx solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.clear-log {
+  font-size: 24rpx;
+  color: #999;
+  font-weight: normal;
+}
+
+.input-group {
+  padding: 0;
+}
+
+.input-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+
+.label {
+  width: 100rpx;
+  font-size: 28rpx;
+  color: #555;
+  flex-shrink: 0;
+}
+
+.input {
+  flex: 1;
+  height: 68rpx;
+  border: 1rpx solid #ddd;
+  border-radius: 10rpx;
+  padding: 0 20rpx;
+  font-size: 28rpx;
+  background: #fafafa;
+}
+
+.btn-small {
+  margin-left: 16rpx;
+  padding: 12rpx 24rpx;
+  background: #4A90D9;
+  color: #fff;
+  border-radius: 10rpx;
+  font-size: 24rpx;
+  flex-shrink: 0;
+}
+
+/* 操作按钮行 */
+.action-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-action {
+  width: 48%;
+  padding: 20rpx 0;
+  text-align: center;
+  background: #ecf5ff;
+  color: #4A90D9;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  font-weight: 500;
+}
+
+.btn-action.btn-done {
+  background: #e8f8e8;
+  color: #27ae60;
+}
+
+.btn-action.btn-active {
+  background: #fff3e0;
+  color: #f39c12;
+}
+
+.btn-action.btn-danger {
+  background: #fff0f0;
+  color: #e74c3c;
+}
+
+/* 设备列表 */
+.device-section {
+  margin-top: 20rpx;
+}
+
+.device-tip {
+  font-size: 24rpx;
+  color: #888;
+  margin-bottom: 12rpx;
+}
+
+.empty-tip {
+  font-size: 26rpx;
+  color: #aaa;
+  text-align: center;
+  padding: 40rpx 0;
+}
+
+.device-list {
+  max-height: 450rpx;
+}
+
+.device-item {
+  padding: 24rpx 20rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+  border-left: 6rpx solid transparent;
+  min-height: 80rpx;
+}
+
+.device-selected {
+  background: #f0f7ff;
+  border-left-color: #4A90D9;
+}
+
+.device-name {
+  font-size: 30rpx;
+  font-weight: 500;
+  color: #333;
+}
+
+.device-id {
+  font-size: 22rpx;
+  color: #999;
+  margin-top: 6rpx;
+}
+
+.device-info {
+  font-size: 22rpx;
+  color: #4A90D9;
+  margin-top: 4rpx;
+}
+
+/* 一键配网按钮 */
+.btn-provision {
+  width: 100%;
+  padding: 28rpx 0;
+  text-align: center;
+  background: linear-gradient(135deg, #4A90D9, #357ABD);
+  color: #fff;
+  border-radius: 12rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-top: 16rpx;
+}
+
+.btn-provision-disabled {
+  background: #ccc;
+  color: #fff;
+}
+
+.btn-provision-success {
+  background: linear-gradient(135deg, #27ae60, #219a52);
+}
+
+.btn-reset {
+  background: linear-gradient(135deg, #f39c12, #e67e22);
+  margin-top: 16rpx;
+}
+
+.provision-status {
+  margin-bottom: 16rpx;
+}
+
+.status-text {
+  font-size: 26rpx;
+  color: #4A90D9;
+  text-align: center;
+  margin-bottom: 12rpx;
+}
+
+.progress-bar {
+  height: 8rpx;
+  background: #eee;
+  border-radius: 4rpx;
+  overflow: hidden;
+}
+
+.progress-inner {
+  height: 100%;
+  background: linear-gradient(90deg, #4A90D9, #27ae60);
+  border-radius: 4rpx;
+  transition: width 0.3s ease;
+}
+
+.provision-tip {
+  font-size: 24rpx;
+  color: #999;
+  text-align: center;
+  margin-top: 12rpx;
+}
+
+/* 日志区 */
+.log-area {
+  max-height: 400rpx;
+  background: #1a2332;
+  border-radius: 10rpx;
+  padding: 20rpx;
+}
+
+.log-item {
+  font-size: 22rpx;
+  color: #2ecc71;
+  font-family: 'Courier New', Consolas, monospace;
+  line-height: 1.8;
+  word-break: break-all;
+}
+
+.log-empty {
+  font-size: 24rpx;
+  color: #7f8c8d;
+  text-align: center;
+  padding: 40rpx 0;
+}

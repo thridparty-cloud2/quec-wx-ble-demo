@@ -1,0 +1,96 @@
+<view class="container">
+  <!-- 标题 -->
+  <view class="header">
+    <text class="title">蓝牙配网流程 Demo</text>
+    <text class="subtitle">三步完成设备配网</text>
+    <view class="btn-reset-top" bindtap="resetProvision">重新配网</view>
+  </view>
+
+  <!-- 第一步：WiFi信息 + 开启蓝牙扫描 -->
+  <view class="card">
+    <view class="card-title">第一步：WiFi 信息</view>
+    <view class="input-group">
+      <view class="input-row">
+        <text class="label">SSID:</text>
+        <input class="input" placeholder="WiFi名称" value="{{ssid}}" bindinput="onSsidInput" />
+        <view class="btn-small" bindtap="getWifi">获取</view>
+      </view>
+      <view class="input-row">
+        <text class="label">密码:</text>
+        <input class="input" placeholder="WiFi密码" value="{{password}}" bindinput="onPasswordInput" />
+      </view>
+    </view>
+  </view>
+
+  <!-- 第二步：扫描并选择设备 -->
+  <view class="card">
+    <view class="card-title">第二步：扫描并选择设备</view>
+    <view class="action-row">
+      <view class="btn-action {{bleOpened ? 'btn-done' : ''}}" bindtap="openBle">
+        {{bleOpened ? '蓝牙已开启' : '开启蓝牙'}}
+      </view>
+      <view class="btn-action {{scanning ? 'btn-active' : ''}}" bindtap="toggleScan">
+        {{scanning ? '停止扫描' : '开始扫描'}}
+      </view>
+    </view>
+    <!-- 设备列表 -->
+    <view wx:if="{{devices.length > 0}}" class="device-section">
+      <view class="device-tip">点击选择要配网的设备（共发现 {{devices.length}} 个）</view>
+      <scroll-view scroll-y class="device-list">
+        <view
+          wx:for="{{devices}}"
+          wx:key="deviceId"
+          class="device-item {{selectedDevice.deviceId === item.deviceId ? 'device-selected' : ''}}"
+          bindtap="selectDevice"
+          data-index="{{index}}"
+        >
+          <view class="device-name">{{item.name || '未知设备'}}</view>
+          <view class="device-id">{{item.deviceId}}</view>
+          <view class="device-info" wx:if="{{item.pk}}">PK: {{item.pk}}</view>
+        </view>
+      </scroll-view>
+    </view>
+    <view wx:elif="{{bleOpened && !scanning}}" class="empty-tip">点击"开始扫描"搜索附近设备</view>
+    <view wx:elif="{{scanning}}" class="empty-tip">正在扫描中...</view>
+  </view>
+
+  <!-- 第三步：一键配网 -->
+  <view class="card">
+    <view class="card-title">第三步：一键配网</view>
+    <view class="provision-status" wx:if="{{provisionStep}}">
+      <view class="status-text">{{provisionStep}}</view>
+      <view class="progress-bar" wx:if="{{provisioning}}">
+        <view class="progress-inner" style="width: {{provisionProgress}}%"></view>
+      </view>
+    </view>
+    <view class="btn-provision {{canProvision ? '' : 'btn-provision-disabled'}}" bindtap="startProvision" wx:if="{{!bound}}">
+      {{provisioning ? '配网中...' : '开始配网'}}
+    </view>
+    <view class="btn-provision btn-provision-success" wx:if="{{bound}}">
+      ✓ 配网成功
+    </view>
+    <view class="provision-tip" wx:if="{{!canProvision && !provisioning && !bound}}">
+      请先填写WiFi信息并选择设备
+    </view>
+  </view>
+
+  <!-- 清理操作 -->
+  <view class="card" wx:if="{{connected || bleOpened}}">
+    <view class="action-row">
+      <view class="btn-action btn-danger" wx:if="{{connected}}" bindtap="disconnect">断开连接</view>
+      <view class="btn-action btn-danger" wx:if="{{bleOpened}}" bindtap="closeBle">关闭蓝牙</view>
+    </view>
+  </view>
+
+  <!-- 日志 -->
+  <view class="card">
+    <view class="card-title">
+      <text>运行日志</text>
+      <text class="clear-log" bindtap="clearLogs">清空</text>
+    </view>
+    <scroll-view scroll-y class="log-area" scroll-into-view="{{scrollToLog}}">
+      <view wx:for="{{logs}}" wx:key="index" id="log-{{index}}" class="log-item">{{item}}</view>
+      <view wx:if="{{logs.length === 0}}" class="log-empty">暂无日志</view>
+    </scroll-view>
+  </view>
+</view>
