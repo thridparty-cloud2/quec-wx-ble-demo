@@ -12,7 +12,7 @@
   "sitemapLocation": "sitemap.json",
   "plugins": {
     "quecPlugin": {
-      "version": "dev-310c00538b425a44507f3c1ff73523bb",
+      "version": "3.0.0",
       "provider": "wx8b0625890b89be58"
     }
   },
